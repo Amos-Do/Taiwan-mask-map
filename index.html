@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>台灣口罩即時地圖</title>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
+</head>
+
+<body>
+    <div class="side-nav">
+        <div class="drag-btn"></div>
+        <header>
+            <h1>口罩即時地圖</h1>
+            <div>
+                <p>資料來源：衛福部</p>
+                <p class="time">2020年02月08日</p>
+            </div>
+        </header>
+        <div class="banner">
+            <img src="images/banner_announce_fix@2x.png" alt="">
+            <div>
+                <p class="day">星期二</p>
+                <p class="id-number">2.4.6.8.0</p>
+            </div>
+            <label for="notice-info" title="口罩實名制相關資訊">
+                <img src="/images/banner_link_to official web.svg" alt="">
+            </label>
+        </div>
+        <div class="search-bar">
+            <p>現在位置</p>
+            <input type="text" name="search" id="search" placeholder="新北市中和區中山路123號">
+            <button class="search-btn"></button>
+            <ul class="check-masks">
+                <li><a href="#" class="mask-item" data-mask="all">所有口罩</a></li>
+                <li><a href="#" class="mask-item" data-mask="adult">成人口罩</a></li>
+                <li><a href="#" class="mask-item" data-mask="child">兒童口罩</a></li>
+            </ul>
+        </div>
+        <div class="store-select">
+            <p>尚有庫存店家</p>
+            <ul class="select">
+                <li><a href="#" class="select-item" data-store="nearDistance">距離最近</a></li>
+                <li><a href="#" class="select-item" data-store="numMore">存量最多</a></li>
+                <li><a href="#" class="select-item" data-store="star">已標星號</a></li>
+            </ul>
+        </div>
+        <div class="store-items">
+            <div class="card">
+                <h2>皇秦大藥局<span class="distance">10km</span></h2>
+                <p>235新北市中和區中山路三段39號</p>
+                <p>+886 2 2226 9636</p>
+                <p>今日營業時間：Closing soon: 9am–10pm</p>
+                <ul>
+                    <li class="num-adult">成人 <span>0</span> </li>
+                    <li class="num-child">兒童 <span>1,234</span> </li>
+                </ul>
+                <p class="update">2020/02/08 23:35更新</p>
+                <div>
+                    <a href="#" class="store-star"></a><br>
+                    <a href="#" class="store-map"></a>
+                </div>
+            </div>
+            <div class="card">
+                    <h2>皇秦大藥局<span class="distance">10km</span></h2>
+                    <p>235新北市中和區中山路三段39號</p>
+                    <p>+886 2 2226 9636</p>
+                    <p>今日營業時間：Closing soon: 9am–10pm</p>
+                    <ul>
+                        <li class="num-adult">成人 <span>0</span> </li>
+                        <li class="num-child">兒童 <span>1,234</span> </li>
+                    </ul>
+                    <p class="update">2020/02/08 23:35更新</p>
+                    <div>
+                        <a href="#" class="store-star"></a><br>
+                        <a href="#" class="store-map"></a>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <div id="geoBtn">
+        <img src="/images/cursor.svg" alt="">
+    </div>
+
+    <div id="loading" style="display: block">
+        <div class="location"></div>
+    </div>
+
+    <input type="checkbox" name id="notice-info" checked>
+    <label class="notice" for="notice-info">
+        <img src="/images/notice.jpg" alt="">
+    </label>
+
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+    <script src="js/all.js"></script>
+</body>
+
+</html>
