@@ -9,8 +9,24 @@ $white: #FFFFFF;
 $color-blue: #00C3C3;
 $color-orange: #EF8A00;
 
-* {
-    font-family: "Noto Sans TC", sans-serif;
+
+@mixin phone {
+    @media (max-width: 767px) {
+        @content
+    }
+}
+
+@mixin iphone5 {
+    @media (max-width: 320px) {
+        @content
+    }
+}
+
+#map {
+    @include phone() {
+        width: 100%;
+        height: 350px;
+    }
 }
 
 .side-nav {
@@ -41,6 +57,14 @@ $color-orange: #EF8A00;
         background: transparent url('../images/bg_drag.svg') 0% 0% no-repeat padding-box;
         opacity: 1;
         cursor: pointer;
+        @include phone() {
+            display: none;
+        }
+    }
+    @include phone() {
+        position: static;
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -55,17 +79,37 @@ header {
         line-height: 46px;
         letter-spacing: 0.88px;
         color: $primary;
+        @include phone() {
+            font-size: 26px;
+            line-height: 40px;
+        }
+        @include iphone5() {
+            font-size: 20px;
+            line-height: 30px;
+        }
+        a{
+            color: $primary;
+            text-decoration: none;
+            cursor: pointer;
+        }
     }
     p {
         text-align: right;
         font-size: 12px;
         line-height: 18px;
         color: $assist;
+        @include phone() {
+            line-height: 16px;
+        }
     }
     .time {
         font-size: 16px;
         line-height: 24px;
         color: $primary;
+        @include phone() {
+            font-size: 12px;
+            line-height: 16px;
+        }
     }
 }
 
@@ -81,6 +125,10 @@ header {
         bottom: 23px;
         right: 41px;
         left: 41px;
+        @include iphone5() {
+            top: 12px;
+            left: 28px;
+        }
     }
     .day {
         font-size: 30px;
@@ -89,6 +137,10 @@ header {
         letter-spacing: 0.95px;
         color: $primary;
         margin-top: 7px;
+        @include phone() {
+            font-size: 20px;
+            margin: 0;
+        }
     }
     .id-number {
         float: left;
@@ -97,6 +149,11 @@ header {
         letter-spacing: 0.93px;
         color: $color-orange;
         margin-top: 29px;
+        @include phone() {
+            font-size: 20px;
+            line-height: 30px;
+            margin-top: 26px;
+        }
     }
     &>label {
         position: absolute;
@@ -109,6 +166,9 @@ header {
 .search-bar {
     position: relative;
     margin-bottom: 50px;
+    @include phone() {
+         margin-bottom: 40px;
+    }
     p {
         font-size: 16px;
         line-height: 29px;
@@ -143,6 +203,9 @@ header {
         display: flex;
         justify-content: space-between;
         margin-top: 15px;
+        @include phone() {
+            margin-top: 10px;
+        }
         .mask-item {
             text-decoration: none;
             text-align: center;
@@ -158,7 +221,13 @@ header {
                 background-color: $color-orange;
                 border: none;
             }
-            
+            @include phone () {
+                padding: 8px 13px;
+            }
+            @include iphone5() {
+                font-size: 14px;
+                padding: 8px 10px;
+            }
         }
     }
     &:after {
@@ -171,6 +240,9 @@ header {
         bottom: -25px;
         left: 50%;
         transform: translateX(-50%);
+        @include phone() {
+            bottom: -20px;
+        }
 
     }
 }
@@ -184,6 +256,12 @@ header {
         font-size: 20px;
         line-height: 37px;
         color: $primary;
+        @include phone() {
+            font-size: 16px;
+        }
+        @include iphone5() {
+            font-size: 8px;
+        }
     }
     .select {
         display: flex;
@@ -205,6 +283,15 @@ header {
             background-color: $color-orange;
             border: none;
         }
+        @include phone() {
+            font-size: 12px;
+            padding: 5px 3px;
+        }
+        @include iphone5() {
+            font-size: 10px;
+            padding: 5px 2px;
+        }
+
     }
 }
 
@@ -214,6 +301,9 @@ header {
     overflow-y: auto;
     margin: 0 -29px;
     padding: 10px 29px 0;
+    @include phone() {
+        height: calc(100% - 400px);
+    }
     .card {
         position: relative;
         background: $white;
@@ -236,6 +326,7 @@ header {
             }
         }
         p {
+            width: 85%;
             font-size: 16px;
             line-height: 30px;
             color: $primary;
@@ -256,6 +347,9 @@ header {
                     display: inline-block;
                     width: 88px;
                     font-size: 20px;
+                    @include phone() {
+                        width: 50px;
+                    }
                 }
                 &.num-adult {
                     background: #9F9F9F;
@@ -267,6 +361,7 @@ header {
             }
         }
         .update {
+            width: 100%;
             font-size: 12px;
             text-align: right;
             color: $assist;
@@ -336,6 +431,9 @@ header {
         height: 100%;
         width: 0;
         vertical-align: middle;
+    }
+    @include phone() {
+        display: none;
     }
 }
 
@@ -410,5 +508,9 @@ header {
     }
     &:hover {
         background-color: #f4f4f4;
+    }
+    @include phone() {
+        bottom: -250px;
+        right: 14px;
     }
 }

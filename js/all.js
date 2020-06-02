@@ -137,7 +137,6 @@ promise.then(function (myLocation) {
     let geoBtn = document.getElementById('geoBtn');
     geoBtn.addEventListener('click', function () {
         map.setView([myLocation.lat, myLocation.lng], 15);
-
     })
 
     // 加入藥局圖層資料
