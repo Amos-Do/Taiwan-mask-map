@@ -834,6 +834,14 @@ header .time {
   }
 }
 
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
 #geoBtn {
   width: 26px;
   height: 26px;
