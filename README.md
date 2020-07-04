@@ -28,9 +28,9 @@ https://amos-do.github.io/Taiwan-mask-map/
 
 ## 主要練習
 
-* Leaflet + OpenStreetMap 地圖應用開發
-* Leaflet.markercluster （marker 群組化）
-* Geolocation（地理位置定位）
+* [Leaflet + OpenStreetMap](https://leafletjs.com/) 地圖應用開發
+* [Leaflet.markercluster](https://github.com/Leaflet/Leaflet.markercluster) （marker 群組化）
+* Geolocation API（地理位置定位）
 * JavaScript DOM 操作
 * Promise 應用
 * Ajax 串接 API
